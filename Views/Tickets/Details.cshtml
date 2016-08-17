@@ -1,0 +1,103 @@
+﻿@model WebApplication7.Models.Tickets
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tickets</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Project Name
+           @*@Html.DisplayNameFor(model => model.Project.name)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.name)
+        </dd>
+
+        <dt>
+            Ticket Priority
+            @*@Html.DisplayNameFor(model => model.TicketPriorities.name)*@
+        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TicketPriorities.name)
+            </dd>
+
+            <dt>
+                Ticket Status
+                @*@Html.DisplayNameFor(model => model.TicketStatus.name)*@
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TicketStatus.name)
+            </dd>
+
+            <dt>
+                Ticket Types
+                @*@Html.DisplayNameFor(model => model.TicketTypes.name)*@
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TicketTypes.name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Created)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Created)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Updated)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Updated)
+            </dd>
+
+            <dt>
+                Ticket Owner
+                @*@Html.DisplayNameFor(model => model.OwnerUserId)*@
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OwnerUserId)
+            </dd>
+
+            <dt>
+                Ticket Assigned To
+                @*@Html.DisplayNameFor(model => model.AssignedtoUserId)*@
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AssignedtoUserId)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
