@@ -86,6 +86,7 @@ namespace WebApplication7.Controllers
             if (result.Succeeded)
             {
                 var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                string username = user.UserName;
                 if (user != null)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -234,6 +235,7 @@ namespace WebApplication7.Controllers
             if (result.Succeeded)
             {
                 var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                string username = user.UserName;
                 if (user != null)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -356,6 +358,7 @@ namespace WebApplication7.Controllers
         private bool HasPassword()
         {
             var user = UserManager.FindById(User.Identity.GetUserId());
+            string username = user.UserName;
             if (user != null)
             {
                 return user.PasswordHash != null;
@@ -366,6 +369,7 @@ namespace WebApplication7.Controllers
         private bool HasPhoneNumber()
         {
             var user = UserManager.FindById(User.Identity.GetUserId());
+            string username = user.UserName;
             if (user != null)
             {
                 return user.PhoneNumber != null;

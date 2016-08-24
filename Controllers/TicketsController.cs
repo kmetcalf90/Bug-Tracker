@@ -11,6 +11,7 @@ using WebApplication7.Models;
 
 namespace WebApplication7.Controllers
 {
+    [Authorize(Roles ="Admin, Submitter, Project Manager, Developer")]
     public class TicketsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -38,6 +39,8 @@ namespace WebApplication7.Controllers
         }
 
         // GET: Tickets/Create
+
+      
         public ActionResult Create()
         {
             ViewBag.ProjectId = new SelectList(db.Projects, "Id", "name");
@@ -58,6 +61,7 @@ namespace WebApplication7.Controllers
             {
                 tickets.Created = DateTime.Now;             
                 tickets.OwnerUserId = User.Identity.GetUserId();
+                tickets.AssignedtoUserId = User.Identity.GetUserId();
                 db.Tickets.Add(tickets);
                 db.SaveChanges();
                 return RedirectToAction("Index");

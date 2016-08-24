@@ -57,6 +57,6 @@ namespace WebApplication7.Models
         public DbSet<TicketNotifications> TicketNotifications { get; set; }
         public DbSet<Projects> Projects { get; set; }
 
-        
+ 
     }
 }

@@ -6,7 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+ 
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -24,6 +24,10 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Projects", "Index", "Projects")</li>
+                    <li>@Html.ActionLink("Tickets", "Index", "Tickets")</li>
+                    @if (User.IsInRole("Admin"))
+                    {<li>@Html.ActionLink("Users", "Index", "Admin")</li>}
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -36,9 +40,20 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-
+   
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+
+    <!-- CSS -->
+    @Styles.Render("~/DataTables-1.10.12/media/css/jquery.dataTables.min.css")
+
+
+    <!-- JQuery -->
+    @Scripts.Render("~/Scripts/jquery-1.10.2.min.js")
+
+    <!-- DataTables -->
+    @Scripts.Render("~/DataTables-1.10.12/media/js/jquery.dataTables.min.js")
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

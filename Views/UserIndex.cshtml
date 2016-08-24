@@ -1,0 +1,91 @@
+﻿@model WebApplication7.ViewModels.UserListViewModel   /*The @model indicates that this view will be rendered using a model class.
+                                                  The 'BugTacker.ViewModels.UserListViewModel' is the type of model class
+                                                  that will be used when rendering the view. The specific instance of that
+                                                  model class is specified in the 'Index' action method of the 'Admin' controller.
+                                                  The 'UserListViewModel' is instantiated as 'theViewModel' in the 'Index' action
+                                                  method in the 'Admin' controller.*/
+
+<!------------------------------------------------------------------------------------------------------>
+<div class="row">
+    <!-------------------------------------------------------------------------------------------------------->
+    <div class="col-lg-12">
+        <!---------------------------------------------------------------------------------------------->
+        <h3>@ViewBag.Title</h3>
+        <div class="page-header"></div>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="panel">
+  
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="fa fa-table fa-fw"></i> Users
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-responsive col-xs-12">
+                    <table class="table table-bordered table-hover table-striped" id="adminUsersTable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Email
+                                </th>
+                                <th>
+                                    Role(s)
+                                </th>
+                                <!--<th></th>-->
+                            </tr>
+                        </thead>
+                        <tbody id="userDisplayTable">
+                            @foreach (var user in Model.User)
+                            {
+                                <tr class="userRow">
+                                    <td>
+                                        @user.DisplayName
+                                    </td>
+                                    <td>
+                                        @user.Email
+                                    </td>
+                                    <td>
+                                        @foreach (var role in user.Roles.ToList())
+                                        {
+                                            @*
+                                                Each role here is like a RoleJoinModel, it has a RoleId and UserId.
+                                                Since we have a dictionary key=RoleId, value=RoleName, we can access
+                                                the role names by Model.Roles[roleId].
+                                            *@
+                                            @Model.Role[role.RoleId]<span><br /></span>
+                                        }
+                                    </td>
+                                    @* <td>
+                                            @Html.ActionLink("Edit", "EditUserRoles", new { user.Id })
+                                        </td>*@
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div id="morris-bar-chart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+        $(window).load(function () {
+            $('#adminUsersTable').DataTable({
+                responsive: true,
+                l: true,
+                "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
+            });
+        })
+    </script>
+}

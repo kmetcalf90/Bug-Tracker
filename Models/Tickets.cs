@@ -6,7 +6,7 @@ using System.Web;
 namespace WebApplication7.Models
 {
     public class Tickets
-    { 
+    {
         public Tickets()
         {
             TicketAttachments = new HashSet<TicketAttachments>();
@@ -14,7 +14,7 @@ namespace WebApplication7.Models
             TicketHistories = new HashSet<TicketHistories>();
             TicketNotifications = new HashSet<TicketNotifications>();
         }
-     
+
         public int id { get; set; }
 
         public string Title { get; set; }
@@ -33,8 +33,8 @@ namespace WebApplication7.Models
         public int TicketStatusId { get; set; }
 
         public string OwnerUserId { get; set; }
-  
-        public string AssignedtoUserId { get; set;}
+
+        public string AssignedtoUserId { get; set; }
 
         public virtual Projects Project { get; set; }
 
@@ -48,5 +48,8 @@ namespace WebApplication7.Models
         public virtual ICollection<TicketComments> TicketComments { get; set; }
         public virtual ICollection<TicketHistories> TicketHistories { get; set; }
         public virtual ICollection<TicketNotifications> TicketNotifications { get; set; }
+
+        public virtual ApplicationUser OwnerUser { get; set; }
+        public virtual ApplicationUser AssignedtoUser {get; set;}
     }
 }

@@ -83,21 +83,53 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.OwnerUserId)
+                @Html.DisplayFor(model => model.OwnerUser.DisplayName)
             </dd>
 
             <dt>
                 Ticket Assigned To
-                @*@Html.DisplayNameFor(model => model.AssignedtoUserId)*@
+                @*@Html.DisplayNameFor(model => model.AssignedtoUser.DisplayName)*@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.AssignedtoUserId)
+                @Html.DisplayFor(model => model.AssignedtoUser.DisplayName)
             </dd>
 
         </dl>
     </div>
+@Html.ActionLink("Edit", "Edit", new { id = Model.id }, new { @class = "btn btn-primary" })
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h3>Comments</h3>
+        <table class="table">
+
+            @foreach (var item in Model.TicketComments)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User.DisplayName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.comment)
+                    </td>
+                    <td>
+                        Created:
+
+                        @Html.Raw(item.created.ToString("f"))
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-        @Html.ActionLink("Back to List", "Index")
+
+        <div class="panel-footer">
+            <div class="row">
+               
+                @Html.ActionLink("New Comment", "Create", "TicketComments", new { TicketId = Model.id }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("New Attachment", "Create", "TicketAttachments", new { id = Model.id }, new { @class = "btn btn-primary" })
+            </div>
+            <div @Html.ActionLink("Back to List", "Index")
+
+</div>
     </p>

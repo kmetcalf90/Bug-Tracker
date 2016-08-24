@@ -77,6 +77,6 @@ c:\users\kevin\documents\visual studio 2015\Projects\WebApplication7\WebApplicat
 c:\users\kevin\documents\visual studio 2015\Projects\WebApplication7\WebApplication7\bin\Microsoft.Owin.Security.Google.xml
 c:\users\kevin\documents\visual studio 2015\Projects\WebApplication7\WebApplication7\bin\Microsoft.Owin.Security.Twitter.xml
 c:\users\kevin\documents\visual studio 2015\Projects\WebApplication7\WebApplication7\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-c:\users\kevin\documents\visual studio 2015\Projects\WebApplication7\WebApplication7\obj\Debug\WebApplication7.csprojResolveAssemblyReference.cache
 c:\users\kevin\documents\visual studio 2015\Projects\WebApplication7\WebApplication7\obj\Debug\WebApplication7.dll
 c:\users\kevin\documents\visual studio 2015\Projects\WebApplication7\WebApplication7\obj\Debug\WebApplication7.pdb
+C:\Users\kevin\Documents\Visual Studio 2015\Projects\WebApplication7\WebApplication7\obj\Debug\WebApplication7.csprojResolveAssemblyReference.cache

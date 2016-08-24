@@ -15,7 +15,7 @@ namespace WebApplication7.Controllers
         // GET: Roles
         public ActionResult Index()
         {
-            ViewBag.Users = db.Users.ToList();
+            ViewBag.User = db.Users.ToList();
             return View();
         }
 
@@ -26,5 +26,12 @@ namespace WebApplication7.Controllers
             helper.AddUserToRole(uid, role);
             return View();
         }
+        [Authorize(Roles = "Admin")]
+        public ActionResult UserRoles()
+        {
+            var users = db.Users.ToList().OrderBy(u => u.LastName);
+            return View(users.ToList());
+        }
+       
     }
 }
