@@ -71,6 +71,7 @@ namespace WebApplication7.Controllers
             ViewBag.TicketPriorityId = new SelectList(db.TicketPriorities, "Id", "name", tickets.TicketPriorityId);
             ViewBag.TicketStatusId = new SelectList(db.TicketStatuses, "Id", "name", tickets.TicketStatusId);
             ViewBag.TicketTypeId = new SelectList(db.TicketTypes, "Id", "name", tickets.TicketTypeId);
+            ViewBag.AssignedtoUserId = new SelectList(db.Users, "Id", "name", tickets.AssignedtoUserId);
             return View(tickets);
         }
 
@@ -90,6 +91,7 @@ namespace WebApplication7.Controllers
             ViewBag.TicketPriorityId = new SelectList(db.TicketPriorities, "Id", "name", tickets.TicketPriorityId);
             ViewBag.TicketStatusId = new SelectList(db.TicketStatuses, "Id", "name", tickets.TicketStatusId);
             ViewBag.TicketTypeId = new SelectList(db.TicketTypes, "Id", "name", tickets.TicketTypeId);
+            ViewBag.AssignedtoUserId = new SelectList(db.Users, "Id", "DisplayName", tickets.AssignedtoUserId);
             return View(tickets);
         }
 
@@ -110,6 +112,7 @@ namespace WebApplication7.Controllers
             ViewBag.TicketPriorityId = new SelectList(db.TicketPriorities, "Id", "name", tickets.TicketPriorityId);
             ViewBag.TicketStatusId = new SelectList(db.TicketStatuses, "Id", "name", tickets.TicketStatusId);
             ViewBag.TicketTypeId = new SelectList(db.TicketTypes, "Id", "name", tickets.TicketTypeId);
+            ViewBag.AssignedtoUser = new SelectList(db.Users, "Id", "name", tickets.AssignedtoUser);
             return View(tickets);
         }
 
