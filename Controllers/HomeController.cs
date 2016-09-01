@@ -22,9 +22,9 @@ namespace WebApplication7.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Landing()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Landing Page";
 
             return View();
 

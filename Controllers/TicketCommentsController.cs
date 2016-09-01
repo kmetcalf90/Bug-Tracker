@@ -14,6 +14,8 @@ namespace WebApplication7.Controllers
     public class TicketCommentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private UserProjectsHelper PHelper = new UserProjectsHelper();
+        private UserRolesHelper UHelper = new UserRolesHelper();
 
         // GET: TicketComments
         public ActionResult Index()
@@ -42,7 +44,7 @@ namespace WebApplication7.Controllers
         {
             TicketComments comment = new TicketComments();
             comment.TicketId = TicketId;
-
+            comment.created = DateTimeOffset.UtcNow;
             return View(comment);
         }
 

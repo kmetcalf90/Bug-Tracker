@@ -15,7 +15,7 @@ namespace WebApplication7.Models
 
         public string description { get; set; }
 
-        public string created { get; set; }
+        public DateTimeOffset created { get; set; }
 
         public string UserId { get; set; }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -13,11 +14,27 @@ namespace WebApplication7.Controllers
     public class ProjectsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private UserProjectsHelper PHelper = new UserProjectsHelper();
+        private UserRolesHelper UHelper = new UserRolesHelper();
 
         // GET: Projects
         public ActionResult Index()
         {
-            return View(db.Projects.ToList());
+            if (User.IsInRole("Admin"))
+            {
+                var projectList = db.Projects.ToList();
+                return View(projectList);
+            }
+            else
+            {
+                var userId = User.Identity.GetUserId();
+                var projectList = PHelper.ListProjectsForUser(userId);
+                ViewBag.Tickets = db.Tickets;
+                var UserList = new SelectList(userId, "Id", "DisplayName");
+                ViewBag.UserList = UserList;
+                ViewBag.AssignedtoUser = new SelectList(db.Users, "Id", "DisplayName");
+                return View(projectList);
+            }
         }
 
         // GET: Projects/Details/5

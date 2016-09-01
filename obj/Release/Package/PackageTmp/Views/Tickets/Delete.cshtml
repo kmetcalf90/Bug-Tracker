@@ -1,0 +1,104 @@
+﻿@model WebApplication7.Models.Tickets
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Tickets</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketPriorities.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketPriorities.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketStatus.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketStatus.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketTypes.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketTypes.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssignedtoUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignedtoUserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssignedtoUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignedtoUserId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

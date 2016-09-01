@@ -25,6 +25,7 @@ namespace WebApplication7.Controllers
 
         // GET: Tickets/Details/5
         public ActionResult Details(int? id)
+
         {
             if (id == null)
             {
@@ -38,9 +39,11 @@ namespace WebApplication7.Controllers
             return View(tickets);
         }
 
-        // GET: Tickets/Create
 
-      
+
+        // GET: Tickets/Create
+        [Authorize(Roles = "Submitter")]
+
         public ActionResult Create()
         {
             ViewBag.ProjectId = new SelectList(db.Projects, "Id", "name");
@@ -53,6 +56,7 @@ namespace WebApplication7.Controllers
         // POST: Tickets/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Submitter")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,Title,Description,Created,Updated,ProjectId,TicketTypeId,TicketPriorityId,TicketStatusId,OwnerUserId,AssignedtoUserId")] Tickets tickets)
@@ -150,5 +154,6 @@ namespace WebApplication7.Controllers
             }
             base.Dispose(disposing);
         }
+       
     }
 }

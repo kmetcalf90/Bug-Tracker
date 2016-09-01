@@ -16,7 +16,7 @@ namespace WebApplication7.Models
         
         public string newvalue { get; set; }
 
-        public string changed { get; set; }
+        public DateTimeOffset changed { get; set; }
 
         public string UserId { get; set; }
 

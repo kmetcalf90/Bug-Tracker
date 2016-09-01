@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=coderfoundry.cloudapp.net,55555;              Initial Catalog=kmetcalf-BugTracker;         User Id=kmetclaf;         password=uncgweil09" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\kevin\\Documents\\Visual\ Studio\ 2015\\Projects\\WebApplication7\\WebApplication7\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

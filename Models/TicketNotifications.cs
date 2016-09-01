@@ -12,7 +12,8 @@ namespace WebApplication7.Models
         public int TicketId { get; set; }
 
         public string UserId { get; set; }
-
+        public DateTimeOffset DateTime { get; set; }
+        public string Purpose { get; set; }
         public virtual Tickets Ticket { get; set; }
         public virtual ApplicationUser User { get; set; }
     }
