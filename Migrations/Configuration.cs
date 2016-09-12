@@ -52,6 +52,25 @@ namespace WebApplication7.Migrations
                 roleManager.Create(new IdentityRole { Name = "Submitter" });
             }
 
+            if (!context.Roles.Any(r => r.Name == "DemoAdmin"))
+            {
+                roleManager.Create(new IdentityRole { Name = "DemoAdmin" });
+            }
+
+            if (!context.Roles.Any(r => r.Name == "DemoDeveloper"))
+            {
+                roleManager.Create(new IdentityRole { Name = "DemoDeveloper" });
+            }
+
+            if (!context.Roles.Any(r => r.Name == "DemoProjectManager"))
+            {
+                roleManager.Create(new IdentityRole { Name = "DemoProjectManager" });
+            }
+
+            if (!context.Roles.Any(r => r.Name == "DemoSubmitter"))
+            {
+                roleManager.Create(new IdentityRole { Name = "DemoSubmitter" });
+            }
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
             if (!context.Users.Any(u => u.Email == "kmetcalf@gtcc.edu"))
@@ -98,6 +117,15 @@ namespace WebApplication7.Migrations
 
             if (!context.TicketStatuses.Any(u => u.name == "Completed"))
             { context.TicketStatuses.Add(new TicketStatus { name = "Completed" }); }
+
+
+            var user = new ApplicationUser
+            {
+                UserName = "bill5",
+                Email = "bill5@email.com",
+            };
+            userManager.Create(user);
+            userManager.AddToRoles(user.Id, "Developer");
 
         }
     }

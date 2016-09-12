@@ -274,25 +274,10 @@
     <Content Include="blue-moonV1.0.8\graphs.html" />
     <Content Include="blue-moonV1.0.8\help.html" />
     <Content Include="blue-moonV1.0.8\icons.html" />
-    <Content Include="blue-moonV1.0.8\img\1.jpg" />
-    <Content Include="blue-moonV1.0.8\img\11011113_10156013696200494_6897924389835726748_n.jpg" />
-    <Content Include="blue-moonV1.0.8\img\2.jpg" />
-    <Content Include="blue-moonV1.0.8\img\3.jpg" />
-    <Content Include="blue-moonV1.0.8\img\4.jpg" />
-    <Content Include="blue-moonV1.0.8\img\admin1.png" />
-    <Content Include="blue-moonV1.0.8\img\admin2.png" />
-    <Content Include="blue-moonV1.0.8\img\admin3.png" />
-    <Content Include="blue-moonV1.0.8\img\admin4.png" />
     <Content Include="blue-moonV1.0.8\img\alpha.png" />
-    <Content Include="blue-moonV1.0.8\img\bluemoon-blog1.jpg" />
-    <Content Include="blue-moonV1.0.8\img\bluemoon-blog2.jpg" />
-    <Content Include="blue-moonV1.0.8\img\bluemoon-blog3.jpg" />
-    <Content Include="blue-moonV1.0.8\img\bluemoon-blog4.jpg" />
-    <Content Include="blue-moonV1.0.8\img\bluemoon-blog5.jpg" />
-    <Content Include="blue-moonV1.0.8\img\bluemoon-blog6.jpg" />
-    <Content Include="blue-moonV1.0.8\img\bluemoon-blog7.jpg" />
     <Content Include="blue-moonV1.0.8\img\cd-icon-small-arrow.svg" />
     <Content Include="blue-moonV1.0.8\img\clear.png" />
+    <Content Include="blue-moonV1.0.8\img\CoderFoundryHeadShot.jpg" />
     <Content Include="blue-moonV1.0.8\img\documentation.png" />
     <Content Include="blue-moonV1.0.8\img\favicon.ico" />
     <Content Include="blue-moonV1.0.8\img\glyphicons-halflings-white.png" />
@@ -324,17 +309,6 @@
     <Content Include="blue-moonV1.0.8\img\ui-bg_highlight-soft_100_deedf7_1x100.png" />
     <Content Include="blue-moonV1.0.8\img\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
     <Content Include="blue-moonV1.0.8\img\ui-icons_3d80b3_256x240.png" />
-    <Content Include="blue-moonV1.0.8\img\user10.jpg" />
-    <Content Include="blue-moonV1.0.8\img\user2.jpg" />
-    <Content Include="blue-moonV1.0.8\img\user3.jpg" />
-    <Content Include="blue-moonV1.0.8\img\user4.jpg" />
-    <Content Include="blue-moonV1.0.8\img\user4.png" />
-    <Content Include="blue-moonV1.0.8\img\user5.jpg" />
-    <Content Include="blue-moonV1.0.8\img\user5.png" />
-    <Content Include="blue-moonV1.0.8\img\user6.jpg" />
-    <Content Include="blue-moonV1.0.8\img\user7.jpg" />
-    <Content Include="blue-moonV1.0.8\img\user8.jpg" />
-    <Content Include="blue-moonV1.0.8\img\user9.jpg" />
     <Content Include="blue-moonV1.0.8\index.html" />
     <Content Include="blue-moonV1.0.8\index2.html" />
     <Content Include="blue-moonV1.0.8\index3.html" />
@@ -1199,11 +1173,6 @@
     <Content Include="Views\TicketAttachments\Details.cshtml" />
     <Content Include="Views\TicketAttachments\Edit.cshtml" />
     <Content Include="Views\TicketAttachments\Index.cshtml" />
-    <Content Include="Views\TicketNotifications\Create.cshtml" />
-    <Content Include="Views\TicketNotifications\Delete.cshtml" />
-    <Content Include="Views\TicketNotifications\Details.cshtml" />
-    <Content Include="Views\TicketNotifications\Edit.cshtml" />
-    <Content Include="Views\TicketNotifications\Index.cshtml" />
     <Content Include="Views\Projects\View.cshtml" />
     <Content Include="startbootstrap-landing-page-gh-pages\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="startbootstrap-landing-page-gh-pages\font-awesome\fonts\fontawesome-webfont.ttf" />
@@ -1241,9 +1210,14 @@
     <Content Include="startbootstrap-landing-page-gh-pages\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="startbootstrap-landing-page-gh-pages\LICENSE" />
     <Content Include="startbootstrap-landing-page-gh-pages\README.md" />
+    <Content Include="Views\Tickets\AssignedTickets.cshtml" />
+    <Content Include="Views\Tickets\UnassignedTickets.cshtml" />
+    <Content Include="Views\Tickets\Notifications.cshtml" />
+    <Content Include="Views\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\TicketNotifications\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

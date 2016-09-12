@@ -1,6 +1,6 @@
 ﻿@model WebApplication7.Models.AdminUserViewModel
 
-
+<section>
 <div class="col-sm-6 col-sm-offset-3">
     <div class="card-box row">
         <div class="col-xs-12">
@@ -8,26 +8,24 @@
             <p class="text-muted font-13 m-b-30">
                 The role(s) that this user is assigned to are highlighted below.
             </p>
-            <hr />
+        </div>
+    </div>
+</div>
             @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
+
+            { @Html.AntiForgeryToken()
                 <div class="col-sm-12">
                     <div class="form-group">
                         @Html.LabelFor(m => m.Roles, "Roles for " + @Model.User.DisplayName, new { @class = "col-sm-6 text-right control-label" })
                         @Html.ListBox("SelectedRoles", Model.Roles, new { @id = "multi-select-box", @class = "col-sm-6", multiple = "multiple" })
                     </div> 
                 </div>
-                <hr />
-                
-            }
-        </div>
-    </div>
-</div>
-@section Scripts {
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#multi-select-box').multiselect();
-        });
-    </script>
-}
+    }
+</section>
+                @section Scripts {
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('#multi-select-box').multiselect();
+                        });
+                    </script>
+                }

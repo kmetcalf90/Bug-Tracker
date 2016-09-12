@@ -192,8 +192,9 @@
                     <li class=''>
                         <a href='#'><i class="fa fa-flask"></i>Tickets</a>
                         <ul>
-                            <li>@Html.ActionLink("Tickets", "Index", "Tickets")</li>
-                          
+                            <li>@Html.ActionLink("All Tickets", "Index", "Tickets")</li>
+                            <li>@Html.ActionLink("My Tickets", "AssignedTickets", "Tickets")</li>
+                            <li>@Html.ActionLink("Unassigned Tickets", "UnassignedTickets", "Tickets")</li>
                         </ul>
                     </li>
                     <li class=''>

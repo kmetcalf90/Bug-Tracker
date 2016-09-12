@@ -11,7 +11,7 @@ using WebApplication7.Models;
 
 namespace WebApplication7.Controllers
 {
-    [Authorize(Roles ="Admin, Submitter, Project Manager, Developer")]
+    [Authorize(Roles = "Admin, Submitter, Project Manager, Developer")]
     public class TicketsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -63,7 +63,7 @@ namespace WebApplication7.Controllers
         {
             if (ModelState.IsValid)
             {
-                tickets.Created = DateTime.Now;             
+                tickets.Created = DateTime.Now;
                 tickets.OwnerUserId = User.Identity.GetUserId();
                 tickets.AssignedtoUserId = User.Identity.GetUserId();
                 db.Tickets.Add(tickets);
@@ -106,8 +106,15 @@ namespace WebApplication7.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,Title,Description,Created,Updated,ProjectId,TicketTypeId,TicketPriorityId,TicketStatusId,OwnerUserId,AssignedtoUserId")] Tickets tickets)
         {
+            var editable = new List<string>() { "Title", "Description" };
+            if (User.IsInRole("Admin"))
+                editable.AddRange(new string[] { "AssignedToUserId", "TicketTypeId", "TicketPriorityId", "TicketStatusId", "Updated" });
+            if (User.IsInRole("Project Manager"))
+                editable.AddRange(new string[] { "AssignedToUserId", "TicketTypeId", "TicketPriorityId", "TicketStatusId", "Updated" });
+
             if (ModelState.IsValid)
             {
+                tickets.Updated = DateTimeOffset.Now;
                 db.Entry(tickets).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -154,6 +161,48 @@ namespace WebApplication7.Controllers
             }
             base.Dispose(disposing);
         }
-       
+
+        public ActionResult AssignedTickets()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                IEnumerable<Tickets> tickets;
+                var user = db.Users.Find(User.Identity.GetUserId());
+
+                tickets = db.Tickets.Where(t => t.AssignedtoUserId == user.Id);
+
+                return View(tickets.ToList());
+            }
+
+            return View();
+        }
+        //GET : Tickets/UnassignedTickets
+        public ActionResult UnassignedTickets()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                IEnumerable<Tickets> tickets;
+                tickets = db.Tickets.Where(t => t.AssignedtoUserId == null);
+
+                return View(tickets.ToList());
+            }
+
+            return View();
+        }
+
+        //GET: Tickets/Notifications
+        public ActionResult Notifications()
+        {
+            ApplicationUser user = db.Users.Find(User.Identity.GetUserId());
+            if (User.Identity.IsAuthenticated)
+            {
+                IEnumerable<TicketNotifications> notifications;
+                notifications = db.TicketNotifications.Where(n => n.UserId == user.Id);
+
+                return View(notifications.ToList());
+            }
+            return View();
+      
+        }
     }
 }

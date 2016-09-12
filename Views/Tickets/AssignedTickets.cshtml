@@ -1,21 +1,17 @@
 ﻿@model IEnumerable<WebApplication7.Models.Tickets>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Tickets You've Been Assigned To";
 }
 
-
-<h2>Tickets</h2>
-<link href="~/Content/custom.css" rel="stylesheet" />
-@if (User.IsInRole("Submitter"))
-{
+<h2>AssignedTickets</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
-</p>}
+</p>
 <table id="mytable" class="table">
     <thead>
-     
+
         <tr>
             <th>
                 Project Name
@@ -51,11 +47,11 @@
                 </td>
                 <td>
                     @if (User.IsInRole("Admin") || User.IsInRole("Project Manager"))
-                    {  @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary" })}
+                    {  @Html.ActionLink("Edit", "Edit", new { id = item.id })} |
 
-                    @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Details", "Details", new { id = item.id })|
                     @if (User.IsInRole("Admin") || User.IsInRole("Project Manager"))
-                    { @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-primary" })}
+                    { @Html.ActionLink("Delete", "Delete", new { id = item.id })}
                 </td>
             </tr>
         </tbody>

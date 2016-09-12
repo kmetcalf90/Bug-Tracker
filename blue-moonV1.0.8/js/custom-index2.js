@@ -102,7 +102,7 @@ $(function () {
   colors: ['#0084B4', '#666666', '#333333', '#999999', '#CCCCCC'],
 };
  
-  var plot = $.plot($("#monthlyRevenueGrowth"), data, options);  
+  //var plot = $.plot($("#monthlyRevenueGrowth"), data, options);  
 });
 
 // Monthly Expenses & Cancellations

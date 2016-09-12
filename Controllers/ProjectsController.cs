@@ -20,9 +20,10 @@ namespace WebApplication7.Controllers
         // GET: Projects
         public ActionResult Index()
         {
-            if (User.IsInRole("Admin"))
+            if (User.Identity.IsAuthenticated)
             {
                 var projectList = db.Projects.ToList();
+                db.Projects.Include(p => p.Description);
                 return View(projectList);
             }
             else
@@ -67,6 +68,11 @@ namespace WebApplication7.Controllers
         {
             if (ModelState.IsValid)
             {
+                Projects.Created = DateTimeOffset.Now;
+                var id = User.Identity.GetUserId();
+                var user = db.Users.Find(id);
+                projects.User.Add(user);
+
                 db.Projects.Add(projects);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -87,6 +93,7 @@ namespace WebApplication7.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.AssignedtoUserId = new SelectList(db.Users, "Id", "DisplayName", projects.AssignedtoUserId);
             return View(projects);
         }
 
@@ -95,14 +102,17 @@ namespace WebApplication7.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,name")] Projects projects)
+        public ActionResult Edit([Bind(Include = "Id,Name,Description,AssignedToUserId")] Projects projects)
         {
+            var editable = new List<string>() { "Name", "Description" };
             if (ModelState.IsValid)
             {
+                ViewBag.AssignedtoUser = new SelectList(db.Users, "Id", "DisplayName", projects.AssignedtoUser);
                 db.Entry(projects).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            
             return View(projects);
         }
 

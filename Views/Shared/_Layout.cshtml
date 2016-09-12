@@ -37,13 +37,13 @@
         
             <img src="~/blue-moonV1.0.8/img/logo.png" alt="Logo" />
         </a>
-        <div class="pull-right">
+        @*<div class="pull-right">
             <ul id="mini-nav" class="clearfix">
                 <li class="list-box hidden-xs">
                     <a href="#" data-toggle="modal" data-target="#modalMd">
                         <span class="text-white">Code</span> <i class="fa fa-code"></i>
                     </a>
-                    <!-- Modal -->
+                     Modal 
                     <div class="modal fade" id="modalMd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -56,12 +56,12 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                                </div>
-                            </div>
+                                </div>*@
+                            @*</div>
                         </div>
                     </div>
-                </li>
-                <li class="list-box dropdown">
+                </li>*@
+                *<li class="list-box dropdown">
                     <a id="drop5" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-film"></i>
                     </a>
@@ -97,10 +97,8 @@
                     </ul>
                 </li>
                 <li class="list-box dropdown">
-                    <a id="drop5" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-calendar"></i>
-                    </a>
-                    <span class="info-label success-bg">6</span>
+                   
+                    @*<span class="info-label success-bg">6</span>*@
                     <ul class="dropdown-menu server-activity">
                         <li>
                             <p><i class="fa fa-flag text-info"></i> Pending request<span class="time">3 hrs</span></p>
@@ -127,7 +125,7 @@
                 </li>
                 <li class="list-box user-profile">
                     <a id="drop7" href="#" role="button" class="dropdown-toggle user-avtar" data-toggle="dropdown">
-                        <img src="~/blue-moonV1.0.8/img/11011113_10156013696200494_6897924389835726748_n.jpg" alt="Bluemoon User">
+                        @*<img src="~/blue-moonV1.0.8/img/CoderFoundryHeadShot.jpg" alt="Bluemoon User">*@
                     </a>
                     <ul class="dropdown-menu server-activity">
                         <li>
@@ -192,8 +190,9 @@
                     <li class=''>
                         <a href='#'><i class="fa fa-flask"></i>Tickets</a>
                         <ul>
-                            <li>@Html.ActionLink("Tickets", "Index", "Tickets")</li>
-                          
+                            <li>@Html.ActionLink("All Tickets", "Index", "Tickets")</li>
+                            <li>@Html.ActionLink("My Tickets", "AssignedTickets", "Tickets")</li>
+                            <li>@Html.ActionLink("Unassigned Tickets", "UnassignedTickets", "Tickets")</li>
                         </ul>
                     </li>
                     <li class=''>
@@ -236,13 +235,12 @@
     <!-- Flot Charts -->
                     <script src="~/blue-moonV1.0.8/js/flot/jquery.flot.js"></script>
                     <script src="~/blue-moonV1.0.8/js/flot/jquery.flot.orderBar.min.js"></script>
-                    <script src="~/blue-moonV1.0.8/js/flot/jquery.flot.stack.min.js"></script>
                     <script src="~/blue-moonV1.0.8/js/flot/jquery.flot.pie.min.js"></script>
                     <script src="~/blue-moonV1.0.8/js/flot/jquery.flot.tooltip.min.js"></script>
                     <script src="~/blue-moonV1.0.8/js/flot/jquery.flot.resize.min.js"></script>
     <!-- Custom JS -->
                     <script src="~/blue-moonV1.0.8/js/menu.js"></script>
-                    <script src="~/blue-moonV1.0.8/js/custom-index2.js"></script>
+                    @*<script src="~/blue-moonV1.0.8/js/custom-index2.js"></script>*@
 
                     <script type="text/javascript">
                         //ScrollUp

@@ -16,7 +16,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Project.name)
+            @Html.DisplayFor(model => model.Project.Name)
         </dd>
 
         <dt>
@@ -150,6 +150,45 @@
                 }
             </table>
         </div>
+@if (Model.TicketHistories.Count > 0)
+{
+    <h4><u>Ticket History</u></h4>
+    foreach (var history in Model.TicketHistories)
+    {
+        if (history.property == "AssignedtoUserId" || history.property == "Description" || history.property == "TicketTypeId" || history.property == "TicketStatusId")
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    The <b>@history.propertydisplay</b> was <b>changed from</b> @(history.oldvalue ?? "unset") <b>to</b> @(history.newvaluedisplay ?? "unset"), <b>on</b> @history.changed.ToString("g")
+                </div>
+            </div>
+        }
+        else if (history.property == "Comments")
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    A <b>@history.propertydisplay</b> was <b>added</b> by @(history.User.DisplayName ?? "a removed user"), <b>on</b> @history.changed.ToString("g").
+                </div>
+            </div>
+        }
+        else if (history.property == "Attachments")
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    An <b>@history.propertydisplay</b> was <b>added</b> by @(history.User.DisplayName ?? "a removed user"), <b>on</b> @history.changed.ToString("g").
+                </div>
+            </div>
+        }
+        else if (history.property == "Notifications")
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    A <b>@history.propertydisplay</b> was <b>sent</b> to @Model.AssignedtoUser.DisplayName <b>on</b> @history.changed.ToString("g").
+                </div>
+            </div>
+        }
+    }
+}
         <div class="panel-footer">
             <div class="row">
 
@@ -159,4 +198,4 @@
             <div @Html.ActionLink("Back to List", "Index")
 
 </div>
-            </p>
+    

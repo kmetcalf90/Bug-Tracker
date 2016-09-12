@@ -1,14 +1,12 @@
 ﻿@model IEnumerable<WebApplication7.Models.TicketNotifications>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Notifications";
 }
 
-<h2>Index</h2>
+<h2>Notifications</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -17,6 +15,13 @@
         <th>
             @Html.DisplayNameFor(model => model.User.DisplayName)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created)
+        </th>
+        
         <th></th>
     </tr>
 
@@ -27,6 +32,15 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.User.DisplayName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.Message)
+        </td>
+        <td>
+            @Html.DisplayNameFor(model => model.Created)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

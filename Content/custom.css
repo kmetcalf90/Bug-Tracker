@@ -35,3 +35,50 @@ textarea {
     margin-top: 300px;
 }
 
+.btn-black {
+  -webkit-border-radius: 9;
+  -moz-border-radius: 9;
+  border-radius: 9px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  background: #000000;
+  padding: 5px  5px 5px 5px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn-lightblue {
+  -webkit-border-radius: 9;
+  -moz-border-radius: 9;
+  border-radius: 9px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  background: #0080f0;
+  padding: 5px  5px 5px 5px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn-darkblue {
+  -webkit-border-radius: 9;
+  -moz-border-radius: 9;
+  border-radius: 9px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  background :#00437d;
+  padding: 5px  5px 5px 5px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
